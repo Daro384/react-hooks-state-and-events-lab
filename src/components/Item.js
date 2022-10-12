@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 
 function Item({ name, category }) {
+  const [remove, setRemoved] = useState(false)
+  const className = (remove ? "in-cart":"")
   return (
-    <li className="">
+    <li className={className}>
       <span>{name}</span>
       <span className="category">{category}</span>
-      <button className="add">Add to Cart</button>
+      <button className={className} onClick={() => setRemoved(remove => !remove)}>Add to Cart</button>
     </li>
   );
 }
